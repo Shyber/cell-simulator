@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Cell } from '../Components';
+import { getNeighboursCount, getNeighbourCoordinates } from '../Utils/generalUtils';
 
 import { Container, Label, Button, Toolbar, World, WorldRow } from './App.styles';
 
@@ -24,6 +25,31 @@ const App: React.FC = () => {
         world[row][col] = value;
         setWorldKey(Math.random().toString());
     };
+
+    const handleNextGeneration = () => {
+        const nextGenWorld: Array<Array<boolean>> = [];
+        for(let row =0; row<worldSize; row++){
+            const rowValues: Array<boolean> = [];
+            for(let col =0; col<worldSize; col++){
+                const cellIsAlive = world[row][col];
+                let cellWillLive = false;
+                const neightbourCoordinates = getNeighbourCoordinates(row, col, worldSize, worldSize);
+                const aliveNeighboursCount = getNeighboursCount(world, neightbourCoordinates);
+          
+                //if it's alive and has two neighbours, it'll live on
+                if( aliveNeighboursCount  === 2)
+                    cellWillLive = cellIsAlive;
+                //if it has three neighbours, it'll live on or become alive
+                else if(aliveNeighboursCount  === 3 )
+                    cellWillLive = true;
+                //if neighbours are anything other than 2 or 3, they die
+
+                rowValues.push(cellWillLive);
+            }
+            nextGenWorld.push(rowValues);
+        }
+        setWorld(nextGenWorld);
+    };
     
     useEffect(()=> {
         resetWorld(worldSize);
@@ -35,7 +61,7 @@ const App: React.FC = () => {
             <Label>Cell Simulator</Label>
             <Toolbar>
                 <Button onClick={() => resetWorld(worldSize)}>Reset</Button>
-                <Button onClick={() => resetWorld(worldSize)}>Next Generation</Button>
+                <Button onClick={() => handleNextGeneration()}>Next Generation</Button>
             </Toolbar>
             {world && world.length && <World key={worldKey}>{ 
                 world.map((row, rowIndex) => 
