@@ -1,13 +1,29 @@
 import Styled from 'styled-components';
 
 export const Container = Styled.div`
-  background: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 `;
 
 export const Label = Styled.div`
-  color: white;
+  color: black;
   padding: 20px;
+`;
+
+export const Button = Styled.button`
+  color: black;
+  padding: 5px 10px;
+  margin: 10px;
+`;
+
+export const Toolbar = Styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 `;
 
 
@@ -20,7 +36,6 @@ export const World = Styled.div`
 `;
 
 export const WorldRow = Styled.div`
-  background: red;
   width: 100%;
   height: 100%;
   display: flex;

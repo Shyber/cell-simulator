@@ -9,5 +9,6 @@ export const StyledCell = Styled.div<CellProps>`
       border: 1px solid ${alive ? 'white' : 'black'};
       flex: 1;
       font-size: 10px;
+      cursor: pointer;
     `
 }`;
