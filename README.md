@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Cell Simulator Coding Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the Typescript template.
+
+How I approached the solution
+* I started off writing the utils first and its unit tests just to get the core logic sorted easily. 
+* In Session 2, I started thinking about the UI and though to write the 'Cell' component first based on div using styled-components.
+* I thought about using Canvas and pixels but decided to just move forward with a vanilla HTML based implementation and potential UI improvement later on.
+* In my Session 3, I just plugged it all together in App. I thought about creating more views/containers for eg World but just wanted to wrap up the core requirements first.
+
+What would I have done next?
+* Potentially split App into atleast one more component.
+* Exposed some config options on the UI for world and cell sizes.
+* Probably shifted to some component library for nicer aesthetics on the controls.
+* Mapped the render logic to Canvas and pixels instead of divs.
+* Introduced some decent unit testing with Enzyme, specially around World and how its UI is initialized.
 
 ## Available Scripts
 
@@ -29,18 +42,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn lint`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Launches the ESLint configured with prettier to run linting scripts on the src folder.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
